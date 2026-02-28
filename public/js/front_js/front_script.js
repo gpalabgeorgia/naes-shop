@@ -27,4 +27,36 @@ $(document).ready(function() {
             }
         });
     });
+
+    // Update Cart Items
+    $(document).on('click', '.btnItemUpdate', function() {
+        if($(this).hasClass('qtyMinus')) {
+            // if qtyMinus button gets clicked by User
+            let quantity = $(this).next().val();
+            if(quantity<=1) {
+                alert('დაუშვებელია 1-ზე ნაკლები პროდუქტი!');
+                return false;
+            }else {
+                new_qty = parseInt(quantity) - 1;
+            }
+        }
+        if($(this).hasClass('qtyPlus')) {
+            // if qtyPlus button gets clicked by User
+            let quantity = $(this).prev().val();
+            new_qty = parseInt(quantity) + 1;
+        }
+        let cartId = $(this).data('cartid');
+        // alert('cartId');
+        $.ajax({
+            data:{'cartid':cartId, "qty":new_qty},
+            url:'/update-cart-item-qty',
+            type: 'post',
+            success:function(resp) {
+                // alert(resp);
+                $('#AppendCartItems').html(resp.view);
+            },error:function() {
+                alert('წარმოიშვა შეცდომა!');
+            }
+        });
+    });
 });
