@@ -10,30 +10,35 @@
                     <div class="product-details"><!--product-details-->
                         <div class="col-sm-5">
                             <div class="view-product" id="gallery">
-                                <a target="_blank" href="{{ asset('images/product_images/large/'.$productDetails['main_image']) }}">
-                                <img src="{{ asset('images/product_images/large/'.$productDetails['main_image']) }}" alt="" /></a>
+                                <img id="mainZoomImage" src="{{ asset('images/product_images/large/'.$productDetails['main_image']) }}" alt="">
+                                <div class="zoom-lens"></div>
                                 <h3>ZOOM</h3>
                             </div>
                             <div id="similar-product" class="carousel slide" data-ride="carousel">
-                                <!-- Wrapper for slides -->
                                 <div class="carousel-inner">
-                                    <div class="item active">
-                                        @foreach($productDetails['images'] as $image)
-                                            <a target="_blank" href="{{ asset('images/product_images/large/'.$image['image']) }}"><img style="width: 29%;" src="{{ asset('images/product_images/small/'.$image['image']) }}" alt=""></a>
-                                        @endforeach
-                                    </div>
-                                    <div class="item">
-                                        @foreach($productDetails['images'] as $image)
-                                            <a target="_blank" href="{{ asset('images/product_images/large/'.$image['image']) }}"><img style="width: 29%;" src="{{ asset('images/product_images/small/'.$image['image']) }}" alt=""></a>
-                                        @endforeach
-                                    </div>
-                                    <div class="item">
-                                        @foreach($productDetails['images'] as $image)
-                                            <a target="_blank" href="{{ asset('images/product_images/large/'.$image['image']) }}"><img style="width: 29%;" src="{{ asset('images/product_images/small/'.$image['image']) }}" alt=""></a>
-                                        @endforeach
-                                    </div>
+
+                                    @php
+                                        $images = array_chunk($productDetails['images'], 3);
+                                    @endphp
+
+                                    @foreach($images as $key => $chunk)
+                                        <div class="item {{ $key == 0 ? 'active' : '' }}">
+                                            <div class="row">
+                                                @foreach($chunk as $image)
+                                                    <div class="col-xs-4">
+                                                        <a target="_blank" href="{{ asset('images/product_images/large/'.$image['image']) }}">
+                                                            <img class="img-responsive"
+                                                                 src="{{ asset('images/product_images/large/'.$image['image']) }}"
+                                                                 alt="">
+                                                        </a>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @endforeach
+
                                 </div>
-                                <!-- Controls -->
+
                                 <a class="left item-control" href="#similar-product" data-slide="prev">
                                     <i class="fa fa-angle-left"></i>
                                 </a>
@@ -41,7 +46,6 @@
                                     <i class="fa fa-angle-right"></i>
                                 </a>
                             </div>
-
                         </div>
                         <div class="col-sm-7">
                             @if(Session::has('success_message'))

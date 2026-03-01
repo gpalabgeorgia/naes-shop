@@ -35,7 +35,7 @@
                 {{ Session::get('success_message') }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-                </button> 
+                </button>
             </div>
         @endif
         @if(Session::has('error_message'))
@@ -43,7 +43,7 @@
                 {{ Session::get('error_message') }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-                </button> 
+                </button>
             </div>
         @endif
 
@@ -77,7 +77,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <img style="width: 120px; margin-top: 5px;" src="{{ asset('images/product_images/small/'.$productdata['main_image']) }}" alt="">
+                                <img style="width: 120px; margin-top: 5px;" src="{{ asset('images/product_images/large/'.$productdata['main_image']) }}" alt="">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -116,7 +116,7 @@
                 <tr>
                   <td>{{ $image['id'] }}</td>
                   <td>
-                    <img style="width: 120px; margin-top: 5px;" src="{{ asset('images/product_images/small/'.$image['image']) }}" alt="">
+                    <img style="width: 120px; margin-top: 5px;" src="{{ asset('images/product_images/large/'.$image['image']) }}" alt="">
                   </td>
                   <td>
                     @if($image['status']==1)
@@ -139,5 +139,5 @@
         </div>
       </div>
     </section>
-  </div>    
+  </div>
 @endsection

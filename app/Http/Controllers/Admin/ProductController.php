@@ -140,13 +140,8 @@ class ProductController extends Controller
                     $imageName = $image_name.'-'.rand(111,99999).'.'.$extension;
                     // set paths for small, medium and large images
                     $large_image_path = 'images/product_images/large/'.$imageName;
-//                    $medium_image_path = 'images/product_images/medium/'.$imageName;
-//                    $small_image_path = 'images/product_images/small/'.$imageName;
                     // Upload Large Image after Resize
                     Image::make($image_tmp)->save($large_image_path); // W: 1040 H:1200
-                    // Upload Medium and Small Image after Resize
-//                    Image::make($image_tmp)->resize(500,500)->save($medium_image_path);
-//                    Image::make($image_tmp)->resize(250,250)->save($small_image_path);
                     // Save Main Image in products table
                     $product->main_image = $imageName;
                 }
@@ -222,17 +217,8 @@ class ProductController extends Controller
         // Get Product Image
         $productImage = Product::select('main_image')->where('id', $id)->first();
         // Get Product Image Path
-        $small_image_path = 'images/product_images/small';
-        $medium_image_path = 'images/product_images/medium';
         $large_image_path = 'images/product_images/large';
         // Delete Product Small Image if exsts in small folder
-        if(file_exists($small_image_path.$productImage->main_image)) {
-            unlink($small_image_path.$productImage->main_image);
-        }
-        // Delete Product Medium Image if exsts in small folder
-        if(file_exists($medium_image_path.$productImage->main_image)) {
-            unlink($medium_image_path.$productImage->main_image);
-        }
         // Delete Product Large Image if exsts in small folder
         if(file_exists($large_image_path.$productImage->main_image)) {
             unlink($large_image_path.$productImage->main_image);
@@ -346,15 +332,9 @@ class ProductController extends Controller
                     $imageName = rand(111,99999).time().".".$extension;
                     // set paths for small, medium and large images
                     $large_image_path = 'images/product_images/large/'.$imageName;
-                    $medium_image_path = 'images/product_images/medium/'.$imageName;
-                    $small_image_path = 'images/product_images/small/'.$imageName;
                     // Upload Large Image after Resize
                     Image::make($image_tmp)->save($large_image_path); // W: 1040 H:1200
-                    // Upload Medium and Small Image after Resize
-                    Image::make($image_tmp)->resize(520,600)->save($medium_image_path);
-                    Image::make($image_tmp)->resize(260,300)->save($small_image_path);
                     // Save Main Image in products table
-                    $productImage->image = $imageName;
                     $productImage->image = $imageName;
                     $productImage->product_id = $id;
                     $productImage->status = 1;

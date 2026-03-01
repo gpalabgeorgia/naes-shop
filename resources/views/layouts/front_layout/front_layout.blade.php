@@ -44,6 +44,51 @@
 
 @include('layouts.front_layout.front_footer')
 
+<div id="imageModal" style="display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.85);
+z-index:9999;
+align-items:center;
+justify-content:center;">
+
+    <span id="closeModal"
+          style="position:absolute;
+          top:20px;
+          right:30px;
+          font-size:40px;
+          color:white;
+          cursor:pointer;">&times;</span>
+
+    <!-- Left arrow -->
+    <span id="prevImage"
+          style="position:absolute;
+          left:40px;
+          font-size:60px;
+          color:white;
+          cursor:pointer;">&#10094;</span>
+
+    <!-- Right arrow -->
+    <span id="nextImage"
+          style="position:absolute;
+          right:40px;
+          font-size:60px;
+          color:white;
+          cursor:pointer;">&#10095;</span>
+    <div style="display:flex; align-items:center; justify-content:center; width:100%; height:100%;">
+        <img id="modalImage"
+             style="max-width:95%;
+         max-height:95%;
+         width:auto;
+         height:auto;
+         object-fit: contain;
+         border-radius:14px;
+         box-shadow:0 20px 60px rgba(0,0,0,0.6);">
+    </div>
+</div>
 
 <script src="{{ asset('js/front_js/jquery.js') }}"></script>
 <script src="{{ asset('js/front_js/bootstrap.min.js') }}"></script>

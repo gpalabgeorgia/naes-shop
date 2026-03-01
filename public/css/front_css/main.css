@@ -228,7 +228,7 @@ a#scrollUp i{
 }
 
 .mainmenu ul li:first-child{
-  padding-left: 0px;
+  padding-left: 0;
 }
 
 .mainmenu ul li a {
@@ -1163,7 +1163,7 @@ h2.title {
 }
 
 #similar-product .carousel-inner .item{
-	padding-left:0px;
+	padding-left:0;
 }
 
 #similar-product .carousel-inner .item img {
@@ -2026,8 +2026,7 @@ h2.title {
 }
 
 
-.blog-post-area .single-blog-post
-.btn-primary {
+.blog-post-area .single-blog-post .btn-primary {
   background:#FE980F;
   border: medium none;
   border-radius: 0;
@@ -2051,8 +2050,7 @@ h2.title {
 }
 
 .pagination-area .pagination li a:hover,
-.pagination-area
-.pagination li .active {
+.pagination-area .pagination li .active {
   background:#FE980F;
   color: #fff
 }
@@ -2076,8 +2074,7 @@ h2.title {
   width: 57px;
 }
 
-.pager-area
-.pager li a:hover {
+.pager-area .pager li a:hover {
   background: #FE980F;
   color: #fff
 }
@@ -2100,8 +2097,7 @@ h2.title {
 }
 
 
-.rating-area
-.ratings li i {
+.rating-area .ratings li i {
   color:#CCCCCC
 }
 
@@ -2112,9 +2108,7 @@ h2.title {
   text-transform: uppercase;
 }
 
-.rating-area
-.ratings .color,
-.rating-area .color {
+.rating-area .ratings .color, .rating-area .color {
   color: #FE980F
 }
 
@@ -2376,8 +2370,7 @@ h2.title {
   margin-bottom: 20px;
 }
 
-#contact-page
-.form-control::-moz-placeholder {
+#contact-page .form-control::-moz-placeholder {
   color: #8D8D8D;
 }
 
@@ -2461,4 +2454,66 @@ h2.title {
   color: #FE980F;
 }
 
+#gallery {
+    position: relative;
+    overflow: hidden;
+    cursor: zoom-in;
+}
 
+#gallery img {
+    width: 100%;
+    transition: transform .15s ease;
+    transform-origin: center;
+}
+#imageModal{
+    display:none;
+    align-items:center;
+    justify-content:center;
+}
+
+#modalImage{
+    max-width:95%;
+    max-height:95vh;
+    width:auto;
+    height:auto;
+    object-fit: contain;
+    transition: all .25s ease;
+    transform: scale(1);
+}
+#similar-product{
+    border: 1px solid #e0e0e0;
+    border-radius: 14px;
+    padding: 12px;
+    margin-top: 18px;
+    background: linear-gradient(to bottom, #ffffff, #f7f7f7);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+/* Скрываем стрелки по умолчанию */
+#similar-product .item-control{
+    opacity: 0;
+    background: rgb(254,152,15) !important;
+    width: 42px;
+    height: 42px;
+    /*border-radius: 50%;*/
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition: all .3s ease;
+    transform: translateY(-50%);
+}
+
+/* Показываем стрелки при наведении */
+#similar-product:hover .item-control{
+    opacity: 1;
+}
+
+/* Hover эффект */
+#similar-product .item-control:hover{
+    background: rgba(254,152,15,0.85) !important;
+    transform: translateY(-50%) scale(1.1);
+}
+
+#similar-product .item-control i{
+    color:white;
+    font-size:20px;
+}
