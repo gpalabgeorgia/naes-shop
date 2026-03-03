@@ -52,12 +52,32 @@ $(document).ready(function() {
             url:'/update-cart-item-qty',
             type: 'post',
             success:function(resp) {
-                // alert(resp);
+                if(resp.status==false) {
+                    alert(resp.message);
+                }
                 $('#AppendCartItems').html(resp.view);
             },error:function() {
                 alert('წარმოიშვა შეცდომა!');
             }
         });
+    });
+
+    // Delete Cart Items
+    $(document).on('click', '.btnItemDelete', function() {
+        let cartId = $(this).data('cartid');
+        let result = confirm('გსურთ წაშალოთ პროდუქტი?');
+        if(result) {
+            $.ajax({
+                data:{'cartid':cartId},
+                url:'/delete-cart-item',
+                type: 'post',
+                success:function(resp) {
+                    $('#AppendCartItems').html(resp.view);
+                },error:function() {
+                    alert('წარმოიშვა შეცდომა!');
+                }
+            });
+        }
     });
 
     document.querySelectorAll('#similar-product img').forEach(function(img){
