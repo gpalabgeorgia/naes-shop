@@ -63,11 +63,17 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-user"></i>ექაუნთი</a></li>
+                            @if(Auth::check())
+                                <li><a href="{{ url('account') }}"><i class="fa fa-user"></i>ექაუნთი</a></li>
+                                <li>|</li>
+                                <li><a href="{{ url('logout') }}"><i class="fa fa-user"></i>გამოსვლა</a></li>
+                            @else
+                                <li><a href="{{ url('login-register') }}"><i class="fa fa-lock"></i> შესვლა/რეგისტრაცია</a></li>
+                            @endif
 {{--                            <li><a href="#"><i class="fa fa-star"></i> სურვილები</a></li>--}}
 {{--                            <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> გადახდა</a></li>--}}
                             <li><a href="{{ url('/cart') }}"><i class="fa fa-shopping-cart"></i> კალათი</a></li>
-{{--                            <li><a href="login.html"><i class="fa fa-lock"></i> შესვლა</a></li>--}}
+
                         </ul>
                     </div>
                 </div>

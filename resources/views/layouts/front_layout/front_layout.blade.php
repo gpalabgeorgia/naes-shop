@@ -15,7 +15,7 @@
     <link href="{{ asset('css/front_css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/front_css/responsive.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('font/fontawesome7/css/all.css') }}">
-    <link rel="stylesheet" href="{{ url('font/fontawesome7/css/brand.css') }}">
+    <link rel="stylesheet" href="{{ url('font/fontawesome7/css/brands.css') }}">
     <link rel="stylesheet" href="{{ url('font/fontawesome7/css/fontawesome.css') }}">
     <link rel="stylesheet" href="{{ url('font/fontawesome7/css/regular.css') }}">
     <link rel="stylesheet" href="{{ url('font/fontawesome7/css/solid.css') }}">
@@ -90,12 +90,13 @@ justify-content:center;">
     </div>
 </div>
 
-<script src="{{ asset('js/front_js/jquery.js') }}"></script>
-<script src="{{ asset('js/front_js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/front_js/jquery.scrollUp.min.js') }}"></script>
-<script src="{{ asset('js/front_js/price-range.js') }}"></script>
-<script src="{{ asset('js/front_js/jquery.prettyPhoto.js') }}"></script>
-<script src="{{ asset('js/front_js/main.js') }}"></script>
+<script src="{{ url('js/front_js/jquery.js') }}"></script>
+<script src="{{ url('js/front_js/jquery.validate.js') }}" type="text/javascript"></script>
+<script src="{{ url('js/front_js/bootstrap.min.js') }}"></script>
+<script src="{{ url('js/front_js/jquery.scrollUp.min.js') }}"></script>
+<script src="{{ url('js/front_js/price-range.js') }}"></script>
+<script src="{{ url('js/front_js/jquery.prettyPhoto.js') }}"></script>
+<script src="{{ url('js/front_js/main.js') }}"></script>
 <script src="{{ url('font/fontawesome7/js/all.js') }}"></script>
 <script src="{{ url('font/fontawesome7/js/brands.js') }}"></script>
 <script src="{{ url('font/fontawesome7/js/fontawesome.js') }}"></script>
@@ -103,5 +104,6 @@ justify-content:center;">
 <script src="{{ url('font/fontawesome7/js/solid.js') }}"></script>
 <script src="{{ url('font/fontawesome7/js/v4-shims.js') }}"></script>
 <script src="{{ url('js/front_js/front_script.js') }}"></script>
+<script src="{{ asset('js/front_js/register.js') }}"></script>
 </body>
 </html>

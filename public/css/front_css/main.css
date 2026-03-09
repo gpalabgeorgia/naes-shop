@@ -2517,3 +2517,7 @@ h2.title {
     color:white;
     font-size:20px;
 }
+form.cmxform label.error, label.error {
+    color: rgb(254,152,15);
+    font-style: italic;
+}

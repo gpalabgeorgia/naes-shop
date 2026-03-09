@@ -199,4 +199,6 @@ $(document).ready(function() {
 
         currentIndex = galleryImages.findIndex(img => img.src === this.src);
     });
+
+
 });
