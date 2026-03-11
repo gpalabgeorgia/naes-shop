@@ -39,4 +39,27 @@ $(window).on("load", function(){
         }
     });
 
+    $("#loginForm").validate({
+        rules: {
+            email: {
+                required: true,
+                email: true
+            },
+            password: {
+                required: true,
+                minlength: 6
+            }
+        },
+        messages: {
+            email: {
+                required: "გთხოვთ შეიყვანოთ თქვენი ელ.ფოსტის მისამართი",
+                email: "გთხოვთ შეიყვანოთ ვალიდური ელ.ფოსტის მისამართი",
+            },
+            password: {
+                required: "გთხოვთ შეიყვანოთ თქვენი პაროლი",
+                minlength: "პაროლი უნდა შედგებოდეს მინიმუმ 6 სიმბოლოსგან"
+            }
+        }
+    });
+
 });

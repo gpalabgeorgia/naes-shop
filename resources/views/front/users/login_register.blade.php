@@ -23,13 +23,13 @@
 
                     <div class="login-form"><!--login form-->
                         <h2>შედით თქვენს აქაუნთში</h2>
-                        <form action="#">
-                            <input type="text" placeholder="მომხმარებლის სახელი" />
-                            <input type="password" placeholder="პაროლი" />
-                            <span>
-								<input type="checkbox" class="checkbox">
-								დარჩი სისტემაში
-							</span>
+                        <form id="loginForm" action="{{ url('/login') }}" method="post">@csrf
+                            <input type="email" id="email" name="email" placeholder="ელ.ფოსტა" />
+                            <input type="password" id="password" name="password" placeholder="პაროლი" />
+{{--                            <span>--}}
+{{--								<input type="checkbox" class="checkbox">--}}
+{{--								დარჩი სისტემაში--}}
+{{--							</span>--}}
                             <button type="submit" class="btn btn-default">შესვლა</button>
                         </form>
                     </div><!--/login form-->
