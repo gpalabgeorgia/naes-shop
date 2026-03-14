@@ -31,6 +31,8 @@
 {{--								დარჩი სისტემაში--}}
 {{--							</span>--}}
                             <button type="submit" class="btn btn-default">შესვლა</button>
+                            <br>
+                            <a href="{{ url('forgot-password') }}">პაროლის აღდგენა</a>
                         </form>
                     </div><!--/login form-->
                 </div>

@@ -209,7 +209,7 @@ class UsersController extends Controller
             Session::forget('error_message');
             return redirect('login-register');
         }
-        return view('front.users.forgot_password');
+        return view('front.users.forgot-password');
     }
 
     public function account(Request $request) {

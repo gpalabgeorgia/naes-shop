@@ -55,47 +55,6 @@
 </head><!--/head-->
 <body>
     @include('layouts.front_layout.front_header')
-    <section id="form"><!--form-->
-        <div class="container">
-            <div class="breadcrumbs">
-                <ol class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li class="active">Shopping Cart</li>
-                </ol>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-5 mb-4">
-                    <div class="login-form"><!--login form-->
-                        <h2>შედით თქვენს აქაუნთში</h2>
-                        <form action="#">
-                            <input type="text" placeholder="სახელი" />
-                            <input type="email" placeholder="ელ.ფოსტა" />
-                            <span>
-								<input type="checkbox" class="checkbox">
-								დარჩი სისტემაში
-							</span>
-                            <button type="submit" class="btn btn-default">შესვლა</button>
-                        </form>
-                    </div><!--/login form-->
-                </div>
-                <div class="d-none d-md-flex col-md-1 justify-content-center align-items-center">
-                    <h2 class="or">ან</h2>
-                </div>
-                <div class="col-12 col-md-5">
-                    <div class="signup-form"><!--sign up form-->
-                        <h2>რეგისტრაცია!</h2>
-                        <form action="#">
-                            <input type="text" placeholder="სახელი/გვარი"/>
-                            <input type="email" placeholder="ელ.ფოსტა"/>
-                            <input type="password" placeholder="პაროლი"/>
-                            <button type="submit" class="btn btn-default">რეგისტრაცია</button>
-                        </form>
-                    </div><!--/sign up form-->
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="cart_items">
         <div class="container">
             <div class="table-responsive cart_info">
@@ -109,6 +68,7 @@
             </div>
         </div>
     </section>
+    <br><br><br><br><br><br><br>
     @include('layouts.front_layout.front_footer')
     <script src="{{ asset('js/front_js/jquery.js') }}"></script>
     <script src="{{ asset('js/front_js/bootstrap.min.js') }}"></script>
