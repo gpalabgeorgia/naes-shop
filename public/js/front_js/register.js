@@ -88,4 +88,54 @@ $(window).on("load", function(){
         }
     });
 
+    $("#current_pwd").keyup(function() {
+        let current_pwd = $(this).val();
+        $.ajax({
+            type: 'post',
+            url: 'check-user-pwd',
+            data: {current_pwd:current_pwd},
+            success: function(resp) {
+                // alert(resp);
+                if(resp==false) {
+                    $("#chkPwd").html("<font color='red'>მიმდინარე პაროლი არასწორია</font>");
+                }else if(resp==true) {
+                    $("#chkPwd").html("<font color='green'>მიმდინარე პაროლი სწორია</font>");
+                }
+            },error:function() {
+                alert("წარმოიშვა შეცდომა");
+            }
+        });
+    });
+
+    $("#passwordForm").validate({
+        rules: {
+            current_pwd: {
+                required: true,
+                minlength: 6,
+                maxlength: 20
+            },
+            new_pwd: {
+                required: true,
+                minlength: 6,
+                maxlength: 20
+            },
+            confirm_pwd: {
+                required: true,
+                minlength: 6,
+                maxlength: 20,
+                equalTo: "#new_pwd"
+            }
+        },
+        messages: {
+            name: {
+                required: "გთხოვთ შეიყვანოთ სახელი / გვარი",
+                accept: "გთხოვთ შეიყვანოთ ვალიდური სახელი / გვარი"
+            },
+            mobile: {
+                minlength: "ტელეფონის ნომერი დაუშვებელია 9 რიცხვზე ნაკლები",
+                maxlength: "ტელეფონის ნომერი დაუშვებელია 14 რიცხვზე მეტი",
+                digits: "გთხოვთ შეიყვანოთ ვალიდური ტელეფონის ნომერი"
+            },
+        }
+    });
 });

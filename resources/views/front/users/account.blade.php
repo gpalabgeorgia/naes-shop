@@ -20,13 +20,13 @@
             @endif
             <div class="row">
                 <div class="col-sm-4 col-sm-offset-1">
-
                     <div class="login-form"><!--login form-->
                         <h2>პაროლის გაახლება</h2>
-                        <form id="passwordForm" action="{{ url('/update-password') }}" method="post">@csrf
-                            <input type="password" id="password" name="password" placeholder="მიმდინარე პაროლი" />
-                            <input type="password" id="password" name="password" placeholder="ახალი პაროლი" />
-                            <input type="password" id="password" name="password" placeholder="გაიმეორეთ პაროლი" />
+                        <form id="passwordForm" action="{{ url('/update-user-pwd') }}" method="post">@csrf
+                            <input type="password" id="current_pwd" name="current_pwd" placeholder="მიმდინარე პაროლი" />
+                            <span id="chkPwd"></span>
+                            <input type="password" id="new_pwd" name="new_pwd" placeholder="ახალი პაროლი" />
+                            <input type="password" id="confirm_pwd" name="confirm_pwd" placeholder="გაიმეორეთ პაროლი" />
                             <button type="submit" class="btn btn-default">პაროლის გაახლება</button>
                             <br>
 {{--                            <a href="{{ url('forgot-password') }}">პაროლის გაახლება</a>--}}
@@ -44,7 +44,12 @@
                             <input type="text" id="address" name="address" placeholder="მისამართი" value="{{ $userDetails['address'] }}"/>
                             <input type="text" id="city" name="city" placeholder="ქალაქი" value="{{ $userDetails['city'] }}"/>
                             <input type="text" id="state" name="state" placeholder="რეგიონი" value="{{ $userDetails['state'] }}"/>
-                            <input type="text" id="country" name="country" placeholder="ქვეყანა" value="{{ $userDetails['country'] }}"/>
+                            <select class="span3" style="height: 40px;" name="country" id="country">
+                                <option value="">აირჩიეთ ქვეყანა</option>
+                                @foreach($countries as $country)
+                                    <option value="{{ $country['country_name'] }}" @if($country['country_name']==$userDetails['country']) selected="" @endif>{{ $country['country_name'] }}</option>
+                                @endforeach
+                            </select><br><br>
                             <input type="text" id="pincode" name="pincode" placeholder="პინკოდი" value="{{ $userDetails['pincode'] }}"/>
                             <input type="text" id="mobile" name="mobile" placeholder="ტელეფონის ნომერი" value="{{ $userDetails['mobile'] }}"/>
                             <input readonly="readonly" value="{{ $userDetails['email'] }}"/>
