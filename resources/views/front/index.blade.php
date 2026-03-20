@@ -1,6 +1,9 @@
 @php use App\Models\Product; @endphp
 @extends('layouts.front_layout.front_layout')
 @section('content')
+    <?php ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+    ?>
     <div class="col-sm-9 padding-right">
         <div class="recommended_items"><!--recommended_items-->
             <h2 class="title text-center">ბოლოს დამატებულია</h2>

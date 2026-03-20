@@ -39,6 +39,32 @@ $(window).on("load", function(){
         }
     });
 
+    $("#accountForm").validate({
+        rules: {
+            name: {
+                required: true,
+                accept: "[a-zA-Z]+"
+            },
+            mobile: {
+                required: true,
+                minlength: 9,
+                maxlength: 14,
+                digits: true
+            },
+        },
+        messages: {
+            name: {
+                required: "გთხოვთ შეიყვანოთ სახელი / გვარი",
+                accept: "გთხოვთ შეიყვანოთ ვალიდური სახელი / გვარი"
+            },
+            mobile: {
+                minlength: "ტელეფონის ნომერი დაუშვებელია 9 რიცხვზე ნაკლები",
+                maxlength: "ტელეფონის ნომერი დაუშვებელია 14 რიცხვზე მეტი",
+                digits: "გთხოვთ შეიყვანოთ ვალიდური ტელეფონის ნომერი"
+            },
+        }
+    });
+
     $("#loginForm").validate({
         rules: {
             email: {
