@@ -72,7 +72,7 @@
                             @endif
 {{--                            <li><a href="#"><i class="fa fa-star"></i> სურვილები</a></li>--}}
 {{--                            <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> გადახდა</a></li>--}}
-                            <li><a href="{{ url('/cart') }}"><i class="fa fa-shopping-cart"></i> კალათი</a></li>
+                            <li><a href="{{ url('/cart') }}"><i class="fa fa-shopping-cart"></i> კალათი <span class="totalCartItems">[ {{ totalCartItems() }} ]</span></a></li>
 
                         </ul>
                     </div>

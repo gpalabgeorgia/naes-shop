@@ -55,6 +55,7 @@ $(document).ready(function() {
                 if(resp.status==false) {
                     alert(resp.message);
                 }
+                $('.totalCartItems').html(resp.totalCartItems);
                 $('#AppendCartItems').html(resp.view);
             },error:function() {
                 alert('წარმოიშვა შეცდომა!');
